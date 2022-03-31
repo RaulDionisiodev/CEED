@@ -8,9 +8,10 @@ class App extends Component {
 
   constructor() {
     super();
-    this.notas = [];
+    
     this.state = {
-      notas: []
+      notas: [],
+      categorias: []
     };
   }
 
@@ -20,6 +21,12 @@ class App extends Component {
     const novoEstado = {
       notas: novoArrayDeNotas
     }
+    this.setState(novoEstado)
+  }
+
+  adicionarCategoria(nomeCategoria){
+    const novoArrayCategorias = [...this.state.categorias, nomeCategoria]
+    const novoEstado = {...this.state, categorias: novoArrayCategorias}
     this.setState(novoEstado)
   }
 
@@ -35,7 +42,9 @@ class App extends Component {
       <section className="conteudo">
         <FormularioCadastro criarNota={this.criarNota.bind(this)} />
         <main className='conteudo-principal'>
-          <ListaDeCategoria />
+          <ListaDeCategoria
+            adicionarCategoria={this.adicionarCategoria.bind(this)}
+            categorias={this.state.categorias} />
           <ListaDeNotas
             apagarNota={this.deletarNota.bind(this)}
             notas={this.state.notas} />
