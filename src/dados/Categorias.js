@@ -1,4 +1,4 @@
-export default class Categoria {
+export default class Categorias {
     constructor(){
         this.categorias = [];
         this._isncritos = [];
@@ -6,6 +6,10 @@ export default class Categoria {
 
     inscrever(func){
         this._isncritos.push(func);
+    }
+
+    desinscrever(func){
+        this._isncritos = this._isncritos.filter(f => f !== func)
     }
 
     notificar(){

@@ -4,13 +4,13 @@ import ListaDeNotas from './components/ListadeNotas';
 import "./assets/App.css";
 import './assets/index.css';
 import ListaDeCategoria from './components/ListaDeCategorias';
-import Categoria from './dados/categoria';
 import ArrayDeNotas from './dados/Notas';
+import Categorias from './dados/Categorias';
 class App extends Component {
 
   constructor() {
     super();
-    this.categorias = new Categoria();
+    this.categorias = new Categorias();
     this.notas = new ArrayDeNotas();
 
   }
